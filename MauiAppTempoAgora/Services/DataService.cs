@@ -61,9 +61,15 @@ namespace MauiAppTempoAgora.Services
 
         }
 
+        public static async Task<HttpResponseMessage> GetPrevisaoResponse(string cidade)
+        {
+            string chave = "368a556e5c9d459583cdab0afe950efe";
 
+            HttpClient client = new HttpClient();
+            string url = $"https://api.openweathermap.org/data/2.5/weather?q={cidade}&appid={chave}";
 
-
+            return await client.GetAsync(url);
+        }
 
     }
 }
